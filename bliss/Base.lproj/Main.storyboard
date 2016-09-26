@@ -16,12 +16,47 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="cb9-yh-Yma">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="q02-4G-L1f">
+                                <rect key="frame" x="200" y="283" width="200" height="35"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading progress" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="erC-3O-CHI">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="20"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="16"/>
+                                        <color key="textColor" red="0.85749198719999997" green="0.0080276303639999994" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" misplaced="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="BdS-f0-1QN">
+                                        <rect key="frame" x="0.0" y="30" width="200" height="5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="A5G-qs-7dz"/>
+                                            <constraint firstAttribute="height" constant="5" id="UfD-DN-o7x"/>
+                                        </constraints>
+                                        <color key="progressTintColor" red="0.85749198719999997" green="0.0080276303639999994" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="trackTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </progressView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="q02-4G-L1f" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1oa-sU-OKR"/>
+                            <constraint firstItem="cb9-yh-Yma" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="9bG-sM-vQ5"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="cb9-yh-Yma" secondAttribute="bottom" id="foZ-8V-eJn"/>
+                            <constraint firstAttribute="trailing" secondItem="cb9-yh-Yma" secondAttribute="trailing" id="vwM-qM-nBN"/>
+                            <constraint firstItem="q02-4G-L1f" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="x20-B2-Gr2"/>
+                            <constraint firstItem="cb9-yh-Yma" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="y90-XA-NzH"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="NUf-eJ-phJ"/>
                     <connections>
-                        <segue destination="qwS-bK-29S" kind="show" id="PBD-b7-Efb"/>
-                        <segue destination="Zag-Fq-bYX" kind="show" id="WQ1-ex-B5d"/>
+                        <outlet property="loadingLbl" destination="erC-3O-CHI" id="nqn-Dp-TVC"/>
+                        <outlet property="loadingProgressBar" destination="BdS-f0-1QN" id="G5M-1h-VP5"/>
+                        <segue destination="qwS-bK-29S" kind="show" identifier="showQuestionsVC" id="PBD-b7-Efb"/>
+                        <segue destination="Zag-Fq-bYX" kind="show" identifier="showConnectivityVC" id="WQ1-ex-B5d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -42,7 +77,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="Zag-Fq-bYX" kind="show" id="eCU-KD-Kbt"/>
+                        <segue destination="Zag-Fq-bYX" kind="show" identifier="showConnectivityVC" id="eCU-KD-Kbt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="968-KZ-D5e" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -81,9 +116,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="29n-6h-NO2" kind="show" id="x6A-AY-sdi"/>
-                        <segue destination="Bq3-wj-Wy7" kind="show" id="UI5-Ww-iW0"/>
-                        <segue destination="Zag-Fq-bYX" kind="show" id="dUv-Rr-HT7"/>
+                        <segue destination="29n-6h-NO2" kind="show" identifier="showDetailsVC" id="x6A-AY-sdi"/>
+                        <segue destination="Bq3-wj-Wy7" kind="show" identifier="showShareVC" id="UI5-Ww-iW0"/>
+                        <segue destination="Zag-Fq-bYX" kind="show" identifier="showConnectivityVC" id="dUv-Rr-HT7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="47X-Rb-ESP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -104,8 +139,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="Bq3-wj-Wy7" kind="show" id="izX-xj-PS1"/>
-                        <segue destination="Zag-Fq-bYX" kind="show" id="3FM-vz-Dlx"/>
+                        <segue destination="Bq3-wj-Wy7" kind="show" identifier="showShareVC" id="izX-xj-PS1"/>
+                        <segue destination="Zag-Fq-bYX" kind="show" identifier="showConnectivityVC" id="3FM-vz-Dlx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BJ2-yK-gTw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -131,6 +166,9 @@
             <point key="canvasLocation" x="-404" y="139"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bg" width="3475" height="2301"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="eCU-KD-Kbt"/>
         <segue reference="izX-xj-PS1"/>
