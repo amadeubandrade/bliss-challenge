@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="cb9-yh-Yma">
+                            <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="cb9-yh-Yma">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="q02-4G-L1f">
@@ -113,7 +113,18 @@
                     <view key="view" contentMode="scaleToFill" id="ldl-lj-i9o">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="wNm-Xv-E6a">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="wNm-Xv-E6a" secondAttribute="trailing" id="8WP-HA-ahq"/>
+                            <constraint firstItem="wNm-Xv-E6a" firstAttribute="top" secondItem="j0s-DY-bh1" secondAttribute="bottom" id="aRn-jw-j14"/>
+                            <constraint firstItem="RM8-bK-yZd" firstAttribute="top" secondItem="wNm-Xv-E6a" secondAttribute="bottom" id="iO4-ON-7Fs"/>
+                            <constraint firstItem="wNm-Xv-E6a" firstAttribute="leading" secondItem="ldl-lj-i9o" secondAttribute="leading" id="pU3-fL-1yX"/>
+                        </constraints>
                     </view>
                     <connections>
                         <segue destination="29n-6h-NO2" kind="show" identifier="showDetailsVC" id="x6A-AY-sdi"/>
@@ -170,7 +181,7 @@
         <image name="bg" width="3475" height="2301"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="WQ1-ex-B5d"/>
-        <segue reference="izX-xj-PS1"/>
+        <segue reference="dUv-Rr-HT7"/>
+        <segue reference="UI5-Ww-iW0"/>
     </inferredMetricsTieBreakers>
 </document>
