@@ -11,10 +11,9 @@ import UIKit
 class QuestionsVC: UIViewController {
 
     override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
+      super.viewDidLoad()
+      self.navigationItem.setHidesBackButton(true, animated:true)
+  }
 
 
 }

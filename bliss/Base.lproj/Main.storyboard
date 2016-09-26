@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--LoadingVC-->
+        <!--Bliss Challenge-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="LoadingVC" customModule="bliss" customModuleProvider="target" sceneMemberID="viewController">
@@ -51,7 +51,7 @@
                             <constraint firstItem="cb9-yh-Yma" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="y90-XA-NzH"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="NUf-eJ-phJ"/>
+                    <navigationItem key="navigationItem" title="Bliss Challenge" id="NUf-eJ-phJ"/>
                     <connections>
                         <outlet property="loadingLbl" destination="erC-3O-CHI" id="nqn-Dp-TVC"/>
                         <outlet property="loadingProgressBar" destination="BdS-f0-1QN" id="G5M-1h-VP5"/>
@@ -170,7 +170,7 @@
         <image name="bg" width="3475" height="2301"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="eCU-KD-Kbt"/>
+        <segue reference="WQ1-ex-B5d"/>
         <segue reference="izX-xj-PS1"/>
     </inferredMetricsTieBreakers>
 </document>

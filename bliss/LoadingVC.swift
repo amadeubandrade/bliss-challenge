@@ -28,6 +28,11 @@ class LoadingVC: UIViewController {
     super.viewDidLoad()
     checkHealthStatus()
   }
+  
+  override func viewWillDisappear(animated: Bool) {
+    super.viewWillDisappear(animated)
+    loadingProgressBar.progress = 0.0
+  }
 
   
   // MARK: - FUNCTIONS
