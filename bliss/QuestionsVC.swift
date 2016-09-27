@@ -13,7 +13,8 @@ class QuestionsVC: UIViewController, UISearchBarDelegate, UITableViewDelegate, U
   // MARK: - PROPERTIES
   
   var actualOffset = 0
-
+  var questions = [Question]()
+  
   
   // MARK: - IBOUTLETS
   
