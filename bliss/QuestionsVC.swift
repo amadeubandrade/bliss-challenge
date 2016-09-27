@@ -15,7 +15,6 @@ class QuestionsVC: UIViewController, UISearchBarDelegate, UITableViewDelegate, U
   var actualOffset = 0
   var questions = [Question]()
   
-  
   // MARK: - IBOUTLETS
   
   @IBOutlet weak var searchBar: UISearchBar!
@@ -32,6 +31,29 @@ class QuestionsVC: UIViewController, UISearchBarDelegate, UITableViewDelegate, U
     // Button to hide/show search bar
     let searchButton = UIBarButtonItem(image: UIImage(named: "search"), style: .Plain, target: self, action: #selector(QuestionsVC.updateSearchBarVisibility))
     self.navigationItem.rightBarButtonItem = searchButton
+    
+    // Test data:
+    let info = [
+      "id": 10,
+      "question": "Favourite programming language?",
+      "image_url": "https://dummyimage.com/600x400/000/fff.png&text=question+1+image+(600x400)",
+      "thumb_url": "https://dummyimage.com/120x120/000/fff.png&text=question+1+image+(120x120)",
+      "published_at": "2015-08-05T08:40:51.620Z",
+      "choices": [
+        ["choice": "Swift","votes": 2048],
+        ["choice": "Python","votes": 1024],
+        ["choice": "Objective-C","votes": 512],
+        ["choice": "Ruby","votes": 256]
+      ]
+    ]
+    let q1 = Question(questionInfo: info)
+    let q2 = Question(questionInfo: info)
+    let q3 = Question(questionInfo: info)
+    let q4 = Question(questionInfo: info)
+    questions.append(q1)
+    questions.append(q2)
+    questions.append(q3)
+    questions.append(q4)
   }
   
 

@@ -17,7 +17,7 @@ class Question {
   private var _questionImageURL: String?
   private var _questionThumbURL: String?
   private var _questionDate: String?
-  private var _questionChoices: [String:AnyObject]?
+  private var _questionChoices: [[String:AnyObject]]?
   
   
   // MARK: - GETTERS
@@ -42,7 +42,7 @@ class Question {
     return _questionDate
   }
   
-  var questionChoices: [String: AnyObject]? {
+  var questionChoices: [[String: AnyObject]]? {
     return _questionChoices
   }
   
@@ -65,14 +65,10 @@ class Question {
     if let date = questionInfo["published_at"] as? String {
       _questionDate = date
     }
-    if let choices = questionInfo["choices"] as? [String: AnyObject] {
+    if let choices = questionInfo["choices"] as? [[String: AnyObject]] {
       _questionChoices = choices
     }
   }
-  
-  
-  // MARK: - FUNCTIONS
-  
   
 
 }
