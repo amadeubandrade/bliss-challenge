@@ -10,6 +10,19 @@ import UIKit
 
 extension QuestionsVC {
   
+  // MARK: SHOW/HIDE 
+  
+  func updateSearchBarVisibility() {
+    if searchBarHeightConstraint.constant == 44 {
+      self.searchBarHeightConstraint.constant = 0
+    } else {
+      self.searchBarHeightConstraint.constant = 44
+    }
+  }
+  
+  
+  // MARK: - DELEGATE
+  
   func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
     print(searchText)
   }
@@ -18,6 +31,5 @@ extension QuestionsVC {
     view.endEditing(false)
   }
 
-  
   
 }

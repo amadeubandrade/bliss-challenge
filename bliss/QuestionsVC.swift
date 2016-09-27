@@ -26,24 +26,13 @@ class QuestionsVC: UIViewController, UISearchBarDelegate, UITableViewDelegate, U
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.title = "Bliss Challenge"
     self.navigationItem.setHidesBackButton(true, animated:true)
     searchBar.delegate = self
-    
+    // Button to hide/show search bar
     let searchButton = UIBarButtonItem(image: UIImage(named: "search"), style: .Plain, target: self, action: #selector(QuestionsVC.updateSearchBarVisibility))
     self.navigationItem.rightBarButtonItem = searchButton
   }
   
-  
-  // MARK: - IBACTIONS
-  
-  func updateSearchBarVisibility() {
-    if searchBarHeightConstraint.constant == 44 {
-      self.searchBarHeightConstraint.constant = 0
-    } else {
-      self.searchBarHeightConstraint.constant = 44
-    }
-  }
 
   
 }
