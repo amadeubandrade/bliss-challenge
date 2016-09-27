@@ -10,10 +10,19 @@ import UIKit
 
 class QuestionsVC: UIViewController {
 
-    override func viewDidLoad() {
-      super.viewDidLoad()
-      self.navigationItem.setHidesBackButton(true, animated:true)
+  // MARK: - VIEW LIFE CYCLE
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    self.navigationItem.setHidesBackButton(true, animated:true)
   }
-
+  
+  
+  // MARK: - IBACTIONS
+  
+  @IBAction func teste() {
+    performSegueWithIdentifier("showDetailsVC", sender: nil)
+  }
+  
 
 }

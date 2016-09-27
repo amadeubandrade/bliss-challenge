@@ -40,6 +40,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func applicationWillTerminate(application: UIApplication) {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
   }
+  
+  func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
+    
+    let urlComponents = NSURLComponents(URL: url, resolvingAgainstBaseURL: false)
+    
+    if url.scheme == "blissrecruitment", let urlHost = url.host where urlHost == "questions", let components = urlComponents, let items = components.queryItems {
+      if let name = items.first?.name where name == "question_filter", let value = items.first?.value {
+        // Value to search box @ QuestionsVC
+        print(value)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let navigationController:UINavigationController = storyboard.instantiateInitialViewController() as! UINavigationController
+        let questionsVC = storyboard.instantiateViewControllerWithIdentifier("QuestionsVC") as! QuestionsVC
+        navigationController.viewControllers = [questionsVC]
+        self.window?.rootViewController = navigationController
+        return true
+      } else if let name = items.first?.name where name == "question_id", let value = items.first?.value {
+        // Value with the question ID to DetailVC
+        print(value)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let navigationController:UINavigationController = storyboard.instantiateInitialViewController() as! UINavigationController
+        let questionsVC = storyboard.instantiateViewControllerWithIdentifier("QuestionsVC") as! QuestionsVC
+        let detailsVC = storyboard.instantiateViewControllerWithIdentifier("DetailsVC") as! DetailsVC
+        navigationController.viewControllers = [questionsVC, detailsVC]
+        self.window?.rootViewController = navigationController
+        return true
+      }
+    }
+    
+    return false
+  }
 
 
 }

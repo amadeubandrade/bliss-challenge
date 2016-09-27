@@ -105,7 +105,7 @@
         <!--QuestionsVC-->
         <scene sceneID="ppP-VT-vpM">
             <objects>
-                <viewController id="qwS-bK-29S" customClass="QuestionsVC" customModule="bliss" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="QuestionsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qwS-bK-29S" customClass="QuestionsVC" customModule="bliss" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="j0s-DY-bh1"/>
                         <viewControllerLayoutGuide type="bottom" id="RM8-bK-yZd"/>
@@ -117,13 +117,22 @@
                             <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="wNm-Xv-E6a">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xv3-Ef-RYM">
+                                <rect key="frame" x="268" y="304" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="teste" destination="qwS-bK-29S" eventType="touchUpInside" id="fud-i7-Nf8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="wNm-Xv-E6a" secondAttribute="trailing" id="8WP-HA-ahq"/>
+                            <constraint firstItem="xv3-Ef-RYM" firstAttribute="centerX" secondItem="ldl-lj-i9o" secondAttribute="centerX" id="Ejp-8I-OpP"/>
                             <constraint firstItem="wNm-Xv-E6a" firstAttribute="top" secondItem="j0s-DY-bh1" secondAttribute="bottom" id="aRn-jw-j14"/>
                             <constraint firstItem="RM8-bK-yZd" firstAttribute="top" secondItem="wNm-Xv-E6a" secondAttribute="bottom" id="iO4-ON-7Fs"/>
                             <constraint firstItem="wNm-Xv-E6a" firstAttribute="leading" secondItem="ldl-lj-i9o" secondAttribute="leading" id="pU3-fL-1yX"/>
+                            <constraint firstItem="xv3-Ef-RYM" firstAttribute="centerY" secondItem="ldl-lj-i9o" secondAttribute="centerY" id="vGP-fg-3uZ"/>
                         </constraints>
                     </view>
                     <connections>
@@ -139,7 +148,7 @@
         <!--DetailsVC-->
         <scene sceneID="raS-hI-Eef">
             <objects>
-                <viewController id="29n-6h-NO2" customClass="DetailsVC" customModule="bliss" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="29n-6h-NO2" customClass="DetailsVC" customModule="bliss" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lkc-Le-sFi"/>
                         <viewControllerLayoutGuide type="bottom" id="1dn-mP-StC"/>
@@ -147,7 +156,19 @@
                     <view key="view" contentMode="scaleToFill" id="lpb-ya-Crd">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DHI-S0-qBc">
+                                <rect key="frame" x="228" y="220" width="82" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="DHI-S0-qBc" firstAttribute="centerX" secondItem="lpb-ya-Crd" secondAttribute="centerX" id="AdM-i4-ljU"/>
+                            <constraint firstItem="DHI-S0-qBc" firstAttribute="centerY" secondItem="lpb-ya-Crd" secondAttribute="centerY" id="Bdf-95-OAg"/>
+                        </constraints>
                     </view>
                     <connections>
                         <segue destination="Bq3-wj-Wy7" kind="show" identifier="showShareVC" id="izX-xj-PS1"/>
