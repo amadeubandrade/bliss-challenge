@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		717C76746B8609D26AEC174E /* Pods_bliss.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F321841118327D9645030338 /* Pods_bliss.framework */; };
+		E0696A9B1D9B124700222581 /* QuestionsVC+SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0696A9A1D9B124700222581 /* QuestionsVC+SearchBar.swift */; };
+		E0696A9D1D9B170B00222581 /* QuestionsVC+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0696A9C1D9B170B00222581 /* QuestionsVC+TableView.swift */; };
 		E08249BB1D99A28500CF0DDE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08249BA1D99A28500CF0DDE /* AppDelegate.swift */; };
 		E08249BD1D99A28500CF0DDE /* LoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08249BC1D99A28500CF0DDE /* LoadingVC.swift */; };
 		E08249C01D99A28500CF0DDE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E08249BE1D99A28500CF0DDE /* Main.storyboard */; };
@@ -22,6 +24,8 @@
 /* Begin PBXFileReference section */
 		903BB97F6EE98C471FB14CB3 /* Pods-bliss.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bliss.release.xcconfig"; path = "Pods/Target Support Files/Pods-bliss/Pods-bliss.release.xcconfig"; sourceTree = "<group>"; };
 		C090239B568DB560936CFD1C /* Pods-bliss.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bliss.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bliss/Pods-bliss.debug.xcconfig"; sourceTree = "<group>"; };
+		E0696A9A1D9B124700222581 /* QuestionsVC+SearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "QuestionsVC+SearchBar.swift"; sourceTree = "<group>"; };
+		E0696A9C1D9B170B00222581 /* QuestionsVC+TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "QuestionsVC+TableView.swift"; sourceTree = "<group>"; };
 		E08249B71D99A28400CF0DDE /* bliss.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bliss.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E08249BA1D99A28500CF0DDE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E08249BC1D99A28500CF0DDE /* LoadingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingVC.swift; sourceTree = "<group>"; };
@@ -101,6 +105,8 @@
 				E08249BA1D99A28500CF0DDE /* AppDelegate.swift */,
 				E08249BC1D99A28500CF0DDE /* LoadingVC.swift */,
 				E08249CC1D99A65800CF0DDE /* QuestionsVC.swift */,
+				E0696A9A1D9B124700222581 /* QuestionsVC+SearchBar.swift */,
+				E0696A9C1D9B170B00222581 /* QuestionsVC+TableView.swift */,
 				E08249CE1D99A68E00CF0DDE /* DetailsVC.swift */,
 				E08249D31D99A6D500CF0DDE /* ShareVC.swift */,
 				E08249D51D99A6F600CF0DDE /* ConnectivityVC.swift */,
@@ -254,8 +260,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0696A9D1D9B170B00222581 /* QuestionsVC+TableView.swift in Sources */,
 				E08249BD1D99A28500CF0DDE /* LoadingVC.swift in Sources */,
 				E08249CF1D99A68E00CF0DDE /* DetailsVC.swift in Sources */,
+				E0696A9B1D9B124700222581 /* QuestionsVC+SearchBar.swift in Sources */,
 				E08249CD1D99A65800CF0DDE /* QuestionsVC.swift in Sources */,
 				E08249BB1D99A28500CF0DDE /* AppDelegate.swift in Sources */,
 				E08249D41D99A6D500CF0DDE /* ShareVC.swift in Sources */,
