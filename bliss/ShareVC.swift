@@ -10,11 +10,22 @@ import UIKit
 
 class ShareVC: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
+  // MARK: - PROPERTIES
+  
+  var questionID: Int!
+  
+  
+  // MARK: - IBOUTLETS
+  
+  @IBOutlet weak var teste: UILabel!
+  
+  
+  // MARK: - VIEW LIFE CYCLE
+  
+  override func viewDidLoad() {
+      super.viewDidLoad()
+    teste.text = "\(questionID)"
+  }
 
   
 }

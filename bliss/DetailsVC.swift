@@ -64,7 +64,7 @@ class DetailsVC: UIViewController {
   // MARK: Share Button Pressed
   
   func onShareBtnPressed() {
-    
+    performSegueWithIdentifier("showShareVC", sender: questionID)
   }
   
   // MARK: Get question's info
@@ -141,6 +141,19 @@ class DetailsVC: UIViewController {
       } else {
         choice4Lbl.hidden = true
         votes4Lbl.hidden = true
+      }
+    }
+  }
+  
+  
+  // MARK: - SEGUE
+  
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "showShareVC" {
+      if let shareVC = segue.destinationViewController as? ShareVC {
+        if let id = sender as? Int {
+          shareVC.questionID = id
+        }
       }
     }
   }

@@ -75,9 +75,26 @@
                     <view key="view" contentMode="scaleToFill" id="E85-jP-Eqj">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Share" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vTy-H6-q11">
+                                <rect key="frame" x="245" y="257" width="128" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="128" id="Htu-ER-hPh"/>
+                                    <constraint firstAttribute="height" constant="44" id="pTl-pN-cn9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vTy-H6-q11" firstAttribute="centerX" secondItem="E85-jP-Eqj" secondAttribute="centerX" id="tRW-q5-nHS"/>
+                            <constraint firstItem="vTy-H6-q11" firstAttribute="centerY" secondItem="E85-jP-Eqj" secondAttribute="centerY" id="zaW-1e-BKC"/>
+                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="teste" destination="vTy-H6-q11" id="NGM-R1-i4b"/>
                         <segue destination="Zag-Fq-bYX" kind="show" identifier="showConnectivityVC" id="eCU-KD-Kbt"/>
                     </connections>
                 </viewController>
@@ -539,7 +556,7 @@
         <image name="up" width="21" height="21"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="3FM-vz-Dlx"/>
         <segue reference="izX-xj-PS1"/>
+        <segue reference="eCU-KD-Kbt"/>
     </inferredMetricsTieBreakers>
 </document>
