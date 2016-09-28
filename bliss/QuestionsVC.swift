@@ -39,10 +39,26 @@ class QuestionsVC: UIViewController, UISearchBarDelegate, UITableViewDelegate, U
     let searchButton = UIBarButtonItem(image: UIImage(named: "search"), style: .Plain, target: self, action: #selector(QuestionsVC.updateSearchBarVisibility))
     self.navigationItem.rightBarButtonItem = searchButton
     // Grab the first questions
+    grabQuestionsFromAPI()
+  }
+  
+  override func viewDidAppear(animated: Bool) {
+    // Forces the search when the app is opened by a URL Scheme
+    if let text = textToSearch {
+      searchBar.text = text
+      searchBar.delegate?.searchBar!(searchBar, textDidChange: text)
+    }
+  }
+  
+  
+  // MARK: - FUNCTIONS
+  
+  func grabQuestionsFromAPI() {
     let parametersToURL = [
       "limit": limitParameter,
       "offset": currentOffsetParameter
     ]
+
     Alamofire.request(.GET, APIBaseURL, parameters: parametersToURL, encoding: ParameterEncoding.URL, headers: nil).responseJSON { (response: Response<AnyObject, NSError>) in
       if let result = response.result.value as? [[String: AnyObject]] {
         for questionEntry in result {
@@ -55,17 +71,7 @@ class QuestionsVC: UIViewController, UISearchBarDelegate, UITableViewDelegate, U
         //error || nothing to show
       }
     }
-
   }
-  
-  override func viewDidAppear(animated: Bool) {
-    // Forces the search when the app is opened by a URL Scheme
-    if let text = textToSearch {
-      searchBar.text = text
-      searchBar.delegate?.searchBar!(searchBar, textDidChange: text)
-    }
-  }
-  
 
   
 }

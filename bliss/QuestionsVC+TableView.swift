@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 extension QuestionsVC {
   
@@ -38,6 +39,12 @@ extension QuestionsVC {
       } else {
         question = questions[indexPath.row]
       }
+        
+      if indexPath.row == questions.count - 1 {
+        // Last cell. Download more questions.
+        grabQuestionsFromAPI()
+      }
+      
       cell.thumbnailRequest?.cancel()
       cell.configureCell(question)
       return cell
