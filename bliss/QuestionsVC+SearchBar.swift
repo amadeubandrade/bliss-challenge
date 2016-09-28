@@ -25,11 +25,13 @@ extension QuestionsVC {
   
   func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
     if searchText != "" {
+      searchBar.showsCancelButton = true
       searchIsActive = true
       let text = searchText.lowercaseString
       questionsFiltered = questions.filter({$0.questionDescription?.lowercaseString.rangeOfString(text) != nil})
       tableView.reloadData()
     } else {
+      searchBar.showsCancelButton = false
       searchIsActive = false
       view.endEditing(true)
       tableView.reloadData()
@@ -38,6 +40,15 @@ extension QuestionsVC {
   
   func searchBarSearchButtonClicked(searchBar: UISearchBar) {
     view.endEditing(false)
+  }
+  
+  func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+    searchBar.showsCancelButton = false
+    searchBar.text = ""
+    searchIsActive = false
+    view.endEditing(true)
+    questionsFiltered = []
+    tableView.reloadData()
   }
 
   
