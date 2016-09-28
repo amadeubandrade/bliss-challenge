@@ -19,6 +19,9 @@ extension QuestionsVC {
   // MARK: NUMBER OF ROWS
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    if searchIsActive {
+      return questionsFiltered.count
+    }
     return questions.count
   }
   
@@ -27,7 +30,14 @@ extension QuestionsVC {
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     
     if let cell = tableView.dequeueReusableCellWithIdentifier("QuestionCell") as? QuestionCell {
-      let question = questions[indexPath.row]
+      
+      var question: Question!
+      
+      if searchIsActive {
+        question = questionsFiltered[indexPath.row]
+      } else {
+        question = questions[indexPath.row]
+      }
       cell.thumbnailRequest?.cancel()
       cell.configureCell(question)
       return cell

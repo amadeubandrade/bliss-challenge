@@ -48,11 +48,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     if url.scheme == "blissrecruitment", let urlHost = url.host where urlHost == "questions", let components = urlComponents, let items = components.queryItems {
       if let name = items.first?.name where name == "question_filter", let value = items.first?.value {
         // Value to search box @ QuestionsVC
-        print(value)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let navigationController:UINavigationController = storyboard.instantiateInitialViewController() as! UINavigationController
         let questionsVC = storyboard.instantiateViewControllerWithIdentifier("QuestionsVC") as! QuestionsVC
         navigationController.viewControllers = [questionsVC]
+        questionsVC.textToSearch = value
         self.window?.rootViewController = navigationController
         return true
       } else if let name = items.first?.name where name == "question_id", let value = items.first?.value {

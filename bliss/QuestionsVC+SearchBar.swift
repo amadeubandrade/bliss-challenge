@@ -19,12 +19,21 @@ extension QuestionsVC {
       self.searchBarHeightConstraint.constant = 44
     }
   }
-  
+
   
   // MARK: - DELEGATE
   
   func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-    print(searchText)
+    if searchText != "" {
+      searchIsActive = true
+      let text = searchText.lowercaseString
+      questionsFiltered = questions.filter({$0.questionDescription?.lowercaseString.rangeOfString(text) != nil})
+      tableView.reloadData()
+    } else {
+      searchIsActive = false
+      view.endEditing(true)
+      tableView.reloadData()
+    }
   }
   
   func searchBarSearchButtonClicked(searchBar: UISearchBar) {
