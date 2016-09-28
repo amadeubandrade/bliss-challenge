@@ -68,7 +68,10 @@ class QuestionsVC: UIViewController, UISearchBarDelegate, UITableViewDelegate, U
         self.tableView.reloadData()
         self.currentOffsetParameter += self.limitParameter
       } else {
-        //error || nothing to show
+        let alert = UIAlertController(title: "A problem occurred", message: "The app cannot download the questions. Please try again later.", preferredStyle: .Alert)
+        let action = UIAlertAction(title: "Dismiss", style: .Default, handler: nil)
+        alert.addAction(action)
+        self.presentViewController(self, animated: true, completion: nil)
       }
     }
   }
