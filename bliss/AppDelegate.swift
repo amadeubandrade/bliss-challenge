@@ -57,12 +57,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
       } else if let name = items.first?.name where name == "question_id", let value = items.first?.value {
         // Value with the question ID to DetailVC
-        print(value)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let navigationController:UINavigationController = storyboard.instantiateInitialViewController() as! UINavigationController
         let questionsVC = storyboard.instantiateViewControllerWithIdentifier("QuestionsVC") as! QuestionsVC
         let detailsVC = storyboard.instantiateViewControllerWithIdentifier("DetailsVC") as! DetailsVC
         navigationController.viewControllers = [questionsVC, detailsVC]
+        detailsVC.questionID = Int(value)
         self.window?.rootViewController = navigationController
         return true
       }
