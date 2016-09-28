@@ -295,6 +295,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="testLbl" destination="DHI-S0-qBc" id="fPV-ri-s6M"/>
                         <segue destination="Bq3-wj-Wy7" kind="show" identifier="showShareVC" id="izX-xj-PS1"/>
                         <segue destination="Zag-Fq-bYX" kind="show" identifier="showConnectivityVC" id="3FM-vz-Dlx"/>
                     </connections>
@@ -327,7 +328,7 @@
         <image name="bg" width="3475" height="2301"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dUv-Rr-HT7"/>
-        <segue reference="UI5-Ww-iW0"/>
+        <segue reference="izX-xj-PS1"/>
+        <segue reference="3FM-vz-Dlx"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -56,7 +56,15 @@ extension QuestionsVC {
   // MARK: SELECT CELL
   
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    print(indexPath.row)
+    var question: Question!
+    if searchIsActive {
+      question = questionsFiltered[indexPath.row]
+    } else {
+      question = questions[indexPath.row]
+    }
+    if let id = question.questionID {
+        performSegueWithIdentifier("showDetailsVC", sender: id)
+      }
   }
   
 

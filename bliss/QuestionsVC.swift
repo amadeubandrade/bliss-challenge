@@ -72,6 +72,19 @@ class QuestionsVC: UIViewController, UISearchBarDelegate, UITableViewDelegate, U
       }
     }
   }
+  
+  
+  // MARK: - SEGUE
+  
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "showDetailsVC" {
+      if let detailsVC = segue.destinationViewController as? DetailsVC {
+        if let questionID = sender as? Int {
+          detailsVC.testText = questionID
+        }
+      }
+    }
+  }
 
   
 }
