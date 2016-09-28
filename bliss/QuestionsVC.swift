@@ -71,7 +71,7 @@ class QuestionsVC: UIViewController, UISearchBarDelegate, UITableViewDelegate, U
         let alert = UIAlertController(title: "A problem occurred", message: "The app cannot download the questions. Please try again later.", preferredStyle: .Alert)
         let action = UIAlertAction(title: "Dismiss", style: .Default, handler: nil)
         alert.addAction(action)
-        self.presentViewController(self, animated: true, completion: nil)
+        self.presentViewController(alert, animated: true, completion: nil)
       }
     }
   }
