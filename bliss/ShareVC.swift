@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import ReachabilitySwift
 
 class ShareVC: UIViewController {
 
@@ -19,6 +20,7 @@ class ShareVC: UIViewController {
   let URLSchemeForQuestionWithID = "blissrecruitment://questions?question_id="
   let URLSchemeForQuestionWithText = "blissrecruitment://questions?question_filter="
   var shareRequest: Request?
+  var reachability: Reachability!
   
   
   // MARK: - IBOUTLETS
@@ -33,10 +35,14 @@ class ShareVC: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    // Setup network monitoring
+    setupMonitoring()
   }
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
+    // Set observers
+    initMonitoring()
     if let id = questionID {
       URLField.text = URLSchemeForQuestionWithID + "\(id)"
     } else if let text = searchText {
@@ -49,6 +55,8 @@ class ShareVC: UIViewController {
   override func viewWillDisappear(animated: Bool) {
     super.viewWillDisappear(animated)
     shareRequest?.cancel()
+    // Remove observers
+    stopMonitoring()
   }
   
   

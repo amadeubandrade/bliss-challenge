@@ -6,5 +6,6 @@ target 'bliss' do
 
   # Pods for bliss
   pod 'Alamofire', '~> 3.4'
+  pod 'ReachabilitySwift', '~> 2.3.3'
 
 end

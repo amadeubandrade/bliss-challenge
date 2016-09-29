@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import ReachabilitySwift
 
 class DetailsVC: UIViewController {
   
@@ -17,6 +18,7 @@ class DetailsVC: UIViewController {
   var questionRequest: Request?
   var imgRequest: Request?
   var question: Question?
+  var reachability: Reachability!
   
   
   // MARK: - IBOUTLETS
@@ -44,12 +46,22 @@ class DetailsVC: UIViewController {
     self.navigationItem.rightBarButtonItem = shareButton
     // Retrieve Question Info
     retrieveInformation()
+    // Setup network monitoring
+    setupMonitoring()
   }
   
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    // Set observers
+    initMonitoring()
+  }
+
   override func viewWillDisappear(animated: Bool) {
     super.viewWillDisappear(animated)
     questionRequest?.cancel()
     imgRequest?.cancel()
+    // Remove observers
+    stopMonitoring()
   }
   
 

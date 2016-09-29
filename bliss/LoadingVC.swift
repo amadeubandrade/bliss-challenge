@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import ReachabilitySwift
 
 class LoadingVC: UIViewController {
   
@@ -20,14 +21,29 @@ class LoadingVC: UIViewController {
   // MARK: - PROPERTIES
   
   let url = "https://private-anon-d0ef2ee091-blissrecruitmentapi.apiary-mock.com/health"
+  var reachability: Reachability!
   
   
   // MARK: - VIEW LIFE CYCLE
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    // Setup network monitoring
+    setupMonitoring()
     loadingProgressBar.progress = 0.0
     checkHealthStatus()
+  }
+  
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    // Set observers
+    initMonitoring()
+  }
+  
+  override func viewWillDisappear(animated: Bool) {
+    super.viewWillDisappear(animated)
+    // Remove observers
+    stopMonitoring()
   }
 
   

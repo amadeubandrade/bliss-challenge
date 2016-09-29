@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import ReachabilitySwift
 
 class QuestionsVC: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
 
@@ -20,6 +21,7 @@ class QuestionsVC: UIViewController, UISearchBarDelegate, UITableViewDelegate, U
   var searchIsActive = false
   var questions = [Question]()
   var questionsFiltered = [Question]()
+  var reachability: Reachability!
   
   
   // MARK: - IBOUTLETS
@@ -43,6 +45,8 @@ class QuestionsVC: UIViewController, UISearchBarDelegate, UITableViewDelegate, U
     self.navigationItem.rightBarButtonItem = searchButton
     // Grab the first questions
     grabQuestionsFromAPI()
+    // Setup network monitoring
+    setupMonitoring()
   }
   
   override func viewDidAppear(animated: Bool) {
@@ -52,6 +56,18 @@ class QuestionsVC: UIViewController, UISearchBarDelegate, UITableViewDelegate, U
       searchBar.delegate?.searchBar!(searchBar, textDidChange: text)
       searchBar.becomeFirstResponder()
     }
+  }
+  
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    // Set observers
+    initMonitoring()
+  }
+  
+  override func viewWillDisappear(animated: Bool) {
+    super.viewWillDisappear(animated)
+    // Remove observers
+    stopMonitoring()
   }
   
   
@@ -111,6 +127,6 @@ class QuestionsVC: UIViewController, UISearchBarDelegate, UITableViewDelegate, U
       }
     }
   }
-
+  
   
 }
