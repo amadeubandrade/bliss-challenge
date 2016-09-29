@@ -38,7 +38,7 @@ class DetailsVC: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.title = "ID: \(questionID)"
+    self.title = "Question ID: \(questionID)"
     // Set Share Button
     let shareButton = UIBarButtonItem(image: UIImage(named: "share"), style: .Plain, target: self, action: #selector(DetailsVC.onShareBtnPressed))
     self.navigationItem.rightBarButtonItem = shareButton

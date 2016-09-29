@@ -65,10 +65,10 @@
             </objects>
             <point key="canvasLocation" x="408" y="139"/>
         </scene>
-        <!--ShareVC-->
+        <!--Share-->
         <scene sceneID="0lo-a5-aLj">
             <objects>
-                <viewController id="Bq3-wj-Wy7" customClass="ShareVC" customModule="bliss" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Share" id="Bq3-wj-Wy7" customClass="ShareVC" customModule="bliss" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gpn-fK-kT2"/>
                         <viewControllerLayoutGuide type="bottom" id="t7c-vP-5wV"/>
@@ -99,7 +99,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="356" height="30"/>
                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" keyboardAppearance="alert" returnKeyType="done"/>
                                                     </textField>
                                                     <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Ef-6y-dwI">
                                                         <rect key="frame" x="0.0" y="33" width="356" height="1"/>
@@ -124,11 +124,11 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="zf8-ee-cxO">
                                                 <rect key="frame" x="0.0" y="19" width="356" height="34"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nv2-pZ-D4w">
+                                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nv2-pZ-D4w">
                                                         <rect key="frame" x="0.0" y="0.0" width="356" height="30"/>
                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                        <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Hm-uz-Ui7">
                                                         <rect key="frame" x="0.0" y="33" width="356" height="1"/>
@@ -715,6 +715,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="izX-xj-PS1"/>
-        <segue reference="eCU-KD-Kbt"/>
+        <segue reference="3FM-vz-Dlx"/>
     </inferredMetricsTieBreakers>
 </document>
