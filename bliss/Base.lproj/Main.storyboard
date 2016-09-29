@@ -251,10 +251,10 @@
             </objects>
             <point key="canvasLocation" x="1906" y="665"/>
         </scene>
-        <!--ConnectivityVC-->
+        <!--Connectivity problem-->
         <scene sceneID="EFH-AQ-TZk">
             <objects>
-                <viewController id="Zag-Fq-bYX" customClass="ConnectivityVC" customModule="bliss" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Connectivity problem" id="Zag-Fq-bYX" customClass="ConnectivityVC" customModule="bliss" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KxK-gJ-1bi"/>
                         <viewControllerLayoutGuide type="bottom" id="bAb-ut-qdt"/>
@@ -262,7 +262,30 @@
                     <view key="view" contentMode="scaleToFill" id="fJx-rq-mxH">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="OfW-Tb-KnE">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There is no internet connection. Please turn it on to fully enjoy this app." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aok-5F-MNL">
+                                <rect key="frame" x="207" y="227" width="186" height="147"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="147" id="FNL-PT-94B"/>
+                                    <constraint firstAttribute="width" constant="186" id="hxn-0E-Ihf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="aok-5F-MNL" firstAttribute="centerY" secondItem="fJx-rq-mxH" secondAttribute="centerY" id="N19-es-PdL"/>
+                            <constraint firstItem="aok-5F-MNL" firstAttribute="centerX" secondItem="fJx-rq-mxH" secondAttribute="centerX" id="NVs-6k-f3I"/>
+                            <constraint firstItem="OfW-Tb-KnE" firstAttribute="top" secondItem="KxK-gJ-1bi" secondAttribute="bottom" id="YRf-Lb-xyG"/>
+                            <constraint firstAttribute="trailing" secondItem="OfW-Tb-KnE" secondAttribute="trailing" id="ZbA-K4-c6U"/>
+                            <constraint firstItem="bAb-ut-qdt" firstAttribute="top" secondItem="OfW-Tb-KnE" secondAttribute="bottom" id="k4Y-y9-92k"/>
+                            <constraint firstItem="OfW-Tb-KnE" firstAttribute="leading" secondItem="fJx-rq-mxH" secondAttribute="leading" id="tkY-7a-6Bx"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F3Y-kB-tf2" userLabel="First Responder" sceneMemberID="firstResponder"/>
