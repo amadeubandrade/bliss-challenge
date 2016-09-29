@@ -74,12 +74,15 @@ class QuestionsVC: UIViewController, UISearchBarDelegate, UITableViewDelegate, U
 
     Alamofire.request(.GET, APIBaseURL, parameters: parametersToURL, encoding: ParameterEncoding.URL, headers: nil).responseJSON { (response: Response<AnyObject, NSError>) in
       if let result = response.result.value as? [[String: AnyObject]] {
-        for questionEntry in result {
-          let question = Question(questionInfo: questionEntry)
-          self.questions.append(question)
+        if result.count >= self.limitParameter {
+          // Download more questions until result has less results than the number defined in limit
+          for questionEntry in result {
+            let question = Question(questionInfo: questionEntry)
+            self.questions.append(question)
+          }
+          self.tableView.reloadData()
+          self.currentOffsetParameter += self.limitParameter
         }
-        self.tableView.reloadData()
-        self.currentOffsetParameter += self.limitParameter
       } else {
         let alert = UIAlertController(title: "A problem occurred", message: "The app cannot download the questions. Please try again later.", preferredStyle: .Alert)
         let action = UIAlertAction(title: "Dismiss", style: .Default, handler: nil)
