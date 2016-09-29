@@ -55,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         questionsVC.textToSearch = value
         self.window?.rootViewController = navigationController
         return true
-      } else if let name = items.first?.name where name == "question_id", let value = items.first?.value {
+      } else if let name = items.first?.name where name == "question_id", let value = items.first?.value where value != "" {
         // Value with the question ID to DetailVC
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let navigationController:UINavigationController = storyboard.instantiateInitialViewController() as! UINavigationController
@@ -63,6 +63,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let detailsVC = storyboard.instantiateViewControllerWithIdentifier("DetailsVC") as! DetailsVC
         navigationController.viewControllers = [questionsVC, detailsVC]
         detailsVC.questionID = Int(value)
+        self.window?.rootViewController = navigationController
+        return true
+      } else {
+        // Open app in the initial screen
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let navigationController:UINavigationController = storyboard.instantiateInitialViewController() as! UINavigationController
+        let loadingVC = storyboard.instantiateViewControllerWithIdentifier("LoadingVC") as! LoadingVC
+        navigationController.viewControllers = [loadingVC]
         self.window?.rootViewController = navigationController
         return true
       }

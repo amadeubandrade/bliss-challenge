@@ -50,6 +50,7 @@ class QuestionsVC: UIViewController, UISearchBarDelegate, UITableViewDelegate, U
     if let text = textToSearch {
       searchBar.text = text
       searchBar.delegate?.searchBar!(searchBar, textDidChange: text)
+      searchBar.becomeFirstResponder()
     }
   }
   
