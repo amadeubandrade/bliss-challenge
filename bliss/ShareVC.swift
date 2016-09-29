@@ -13,9 +13,11 @@ class ShareVC: UIViewController {
 
   // MARK: - PROPERTIES
   
-  var questionID: Int!
+  var questionID: Int?
+  var searchText: String?
   let baseURL = "https://private-anon-d0ef2ee091-blissrecruitmentapi.apiary-mock.com/share?"
   let URLSchemeForQuestionWithID = "blissrecruitment://questions?question_id="
+  let URLSchemeForQuestionWithText = "blissrecruitment://questions?question_filter="
   var shareRequest: Request?
   
   
@@ -24,6 +26,7 @@ class ShareVC: UIViewController {
   @IBOutlet weak var emailField: UITextField!
   @IBOutlet weak var URLField: UITextField!
   @IBOutlet weak var shareStackView: UIStackView!
+  @IBOutlet weak var sendEmailButton: UIButton!
   
   
   // MARK: - VIEW LIFE CYCLE
@@ -34,7 +37,13 @@ class ShareVC: UIViewController {
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    URLField.text = URLSchemeForQuestionWithID + "\(questionID)"
+    if let id = questionID {
+      URLField.text = URLSchemeForQuestionWithID + "\(id)"
+    } else if let text = searchText {
+      URLField.text = URLSchemeForQuestionWithText + text
+    } else {
+      sendEmailButton.enabled = false
+    }
   }
   
   override func viewWillDisappear(animated: Bool) {
@@ -47,7 +56,12 @@ class ShareVC: UIViewController {
   
   @IBAction func onSendEmailBtnPressed(sender: RoundedButton) {
     if let email = emailField.text where email != "" {
-      let urlStr = URLSchemeForQuestionWithID + "\(questionID)"
+      var urlStr: String!
+      if let id = questionID {
+        urlStr = URLSchemeForQuestionWithID + "\(id)"
+      } else if let text = searchText {
+        urlStr = URLSchemeForQuestionWithText + text
+      }
       let parameters: [String: AnyObject] = [
         "destination_email" : email,
         "content_url": urlStr
@@ -72,6 +86,11 @@ class ShareVC: UIViewController {
           }
         }
       })
+    } else {
+      let alert = UIAlertController(title: "Mandatory Field", message: "Email field is mandatory. Please enter an email and try again.", preferredStyle: .Alert)
+      let action = UIAlertAction(title: "Dismiss", style: .Default, handler: nil)
+      alert.addAction(action)
+      self.presentViewController(alert, animated: true, completion: nil)
     }
   }
   

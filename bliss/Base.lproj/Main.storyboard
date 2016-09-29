@@ -124,7 +124,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="zf8-ee-cxO">
                                                 <rect key="frame" x="0.0" y="19" width="356" height="34"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nv2-pZ-D4w">
+                                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="Nv2-pZ-D4w">
                                                         <rect key="frame" x="0.0" y="0.0" width="356" height="30"/>
                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
@@ -242,6 +242,7 @@
                     <connections>
                         <outlet property="URLField" destination="Nv2-pZ-D4w" id="5C9-ZU-tdp"/>
                         <outlet property="emailField" destination="r5P-Fn-sHb" id="RGH-KB-xR8"/>
+                        <outlet property="sendEmailButton" destination="wIH-Tf-1sU" id="cDo-QG-aKi"/>
                         <outlet property="shareStackView" destination="AYc-6c-bcW" id="kii-Up-yXl"/>
                         <segue destination="Zag-Fq-bYX" kind="show" identifier="showConnectivityVC" id="eCU-KD-Kbt"/>
                     </connections>
@@ -388,35 +389,52 @@
                                     <outlet property="delegate" destination="qwS-bK-29S" id="CI3-e8-1qe"/>
                                 </connections>
                             </tableView>
-                            <searchBar contentMode="redraw" placeholder="Filter a question here" translatesAutoresizingMaskIntoConstraints="NO" id="9C8-BX-7nq">
-                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YLG-tA-3lu">
+                                <rect key="frame" x="1" y="64" width="600" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qww-3B-M9S">
+                                        <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                        <color key="backgroundColor" red="0.78823529411764703" green="0.78823529411764703" blue="0.80784313725490198" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="44" id="Och-px-UKL"/>
+                                        </constraints>
+                                        <state key="normal" image="shareSearch"/>
+                                        <connections>
+                                            <action selector="onShareBtnPressed:" destination="qwS-bK-29S" eventType="touchUpInside" id="LEo-Wu-iAk"/>
+                                        </connections>
+                                    </button>
+                                    <searchBar contentMode="redraw" placeholder="Filter a question here" translatesAutoresizingMaskIntoConstraints="NO" id="9C8-BX-7nq">
+                                        <rect key="frame" x="44" y="0.0" width="556" height="44"/>
+                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <offsetWrapper key="searchTextPositionAdjustment" horizontal="8" vertical="0.0"/>
+                                        <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
+                                    </searchBar>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="2pu-dQ-aOJ"/>
+                                    <constraint firstAttribute="height" constant="44" id="Qrs-h4-Vjn"/>
                                 </constraints>
-                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <offsetWrapper key="searchTextPositionAdjustment" horizontal="8" vertical="0.0"/>
-                                <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
-                            </searchBar>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="9C8-BX-7nq" secondAttribute="trailing" id="2hc-2k-otN"/>
                             <constraint firstAttribute="trailing" secondItem="wNm-Xv-E6a" secondAttribute="trailing" id="8WP-HA-ahq"/>
-                            <constraint firstItem="9C8-BX-7nq" firstAttribute="leading" secondItem="ldl-lj-i9o" secondAttribute="leading" id="9gO-or-Vhj"/>
+                            <constraint firstItem="YLG-tA-3lu" firstAttribute="leading" secondItem="ldl-lj-i9o" secondAttribute="leading" id="B0a-5d-XBf"/>
                             <constraint firstItem="xnU-ep-AoK" firstAttribute="leading" secondItem="ldl-lj-i9o" secondAttribute="leading" constant="8" id="E22-ic-2Ul"/>
+                            <constraint firstItem="YLG-tA-3lu" firstAttribute="top" secondItem="j0s-DY-bh1" secondAttribute="bottom" id="Fzx-2C-C6D"/>
                             <constraint firstItem="RM8-bK-yZd" firstAttribute="top" secondItem="xnU-ep-AoK" secondAttribute="bottom" constant="8" id="WbI-Q1-P4R"/>
+                            <constraint firstAttribute="trailing" secondItem="YLG-tA-3lu" secondAttribute="trailing" id="XEk-Ww-J3Q"/>
                             <constraint firstAttribute="trailing" secondItem="xnU-ep-AoK" secondAttribute="trailing" constant="8" id="bIg-Tx-ufy"/>
                             <constraint firstItem="wNm-Xv-E6a" firstAttribute="top" secondItem="j0s-DY-bh1" secondAttribute="bottom" id="f5w-t0-vdl"/>
-                            <constraint firstItem="9C8-BX-7nq" firstAttribute="top" secondItem="j0s-DY-bh1" secondAttribute="bottom" id="h9Y-Pf-haZ"/>
                             <constraint firstItem="RM8-bK-yZd" firstAttribute="top" secondItem="wNm-Xv-E6a" secondAttribute="bottom" id="iO4-ON-7Fs"/>
                             <constraint firstItem="wNm-Xv-E6a" firstAttribute="leading" secondItem="ldl-lj-i9o" secondAttribute="leading" id="pU3-fL-1yX"/>
-                            <constraint firstItem="xnU-ep-AoK" firstAttribute="top" secondItem="9C8-BX-7nq" secondAttribute="bottom" id="pot-UX-97Z"/>
+                            <constraint firstItem="xnU-ep-AoK" firstAttribute="top" secondItem="YLG-tA-3lu" secondAttribute="bottom" id="ph7-W1-TpI"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="searchBar" destination="9C8-BX-7nq" id="lYB-W4-j62"/>
-                        <outlet property="searchBarHeightConstraint" destination="2pu-dQ-aOJ" id="Wbc-wW-QL2"/>
+                        <outlet property="searchBarHeightConstraint" destination="Qrs-h4-Vjn" id="hLV-EW-uZl"/>
                         <outlet property="searchDisplayController" destination="3NC-Zz-Nxt" id="kzR-JR-N6z"/>
+                        <outlet property="shareButton" destination="Qww-3B-M9S" id="9fT-Ag-qBR"/>
                         <outlet property="tableView" destination="xnU-ep-AoK" id="qQX-v4-foS"/>
                         <segue destination="29n-6h-NO2" kind="show" identifier="showDetailsVC" id="x6A-AY-sdi"/>
                         <segue destination="Bq3-wj-Wy7" kind="show" identifier="showShareVC" id="UI5-Ww-iW0"/>
@@ -711,10 +729,11 @@
     </scenes>
     <resources>
         <image name="bg" width="3475" height="2301"/>
+        <image name="shareSearch" width="30" height="30"/>
         <image name="up" width="21" height="21"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="izX-xj-PS1"/>
-        <segue reference="3FM-vz-Dlx"/>
+        <segue reference="UI5-Ww-iW0"/>
+        <segue reference="eCU-KD-Kbt"/>
     </inferredMetricsTieBreakers>
 </document>

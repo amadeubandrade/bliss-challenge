@@ -27,6 +27,7 @@ class QuestionsVC: UIViewController, UISearchBarDelegate, UITableViewDelegate, U
   @IBOutlet weak var searchBar: UISearchBar!
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var searchBarHeightConstraint: NSLayoutConstraint!
+  @IBOutlet weak var shareButton: UIButton!
   
   
   // MARK: - VIEW LIFE CYCLE
@@ -35,6 +36,8 @@ class QuestionsVC: UIViewController, UISearchBarDelegate, UITableViewDelegate, U
     super.viewDidLoad()
     self.navigationItem.setHidesBackButton(true, animated:true)
     searchBar.delegate = self
+    // Share button begin hidden
+    shareButton.hidden = true
     // Button to hide/show search bar
     let searchButton = UIBarButtonItem(image: UIImage(named: "search"), style: .Plain, target: self, action: #selector(QuestionsVC.updateSearchBarVisibility))
     self.navigationItem.rightBarButtonItem = searchButton
@@ -47,6 +50,15 @@ class QuestionsVC: UIViewController, UISearchBarDelegate, UITableViewDelegate, U
     if let text = textToSearch {
       searchBar.text = text
       searchBar.delegate?.searchBar!(searchBar, textDidChange: text)
+    }
+  }
+  
+  
+  // MARK: - IBACTIONS
+  
+  @IBAction func onShareBtnPressed(sender: UIButton) {
+    if let text = searchBar.text {
+      performSegueWithIdentifier("showShareVC", sender: text)
     }
   }
   
@@ -84,6 +96,13 @@ class QuestionsVC: UIViewController, UISearchBarDelegate, UITableViewDelegate, U
       if let detailsVC = segue.destinationViewController as? DetailsVC {
         if let questionID = sender as? Int {
           detailsVC.questionID = questionID
+        }
+      }
+    }
+    if segue.identifier == "showShareVC" {
+      if let shareVC = segue.destinationViewController as? ShareVC {
+        if let searchText = sender as? String {
+          shareVC.searchText = searchText
         }
       }
     }
