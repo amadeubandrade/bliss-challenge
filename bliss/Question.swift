@@ -70,5 +70,44 @@ class Question {
     }
   }
   
+  
+  // MARK: - FUNCTIONS
+  
+  // MARK: Question to Dictionary
+  
+  func buildQuestionDictionary() -> [String:AnyObject] {
+    var result = [String:AnyObject]()
+    
+    if let id = _questionID {
+      result["id"] = id
+    }
+    if let question = _questionDescription {
+      result["question"] = question
+    }
+    if let imageURL = _questionImageURL {
+      result["image_url"] = imageURL
+    }
+    if let thumbURL = _questionThumbURL {
+      result["thumb_url"] = thumbURL
+    }
+    if let date = _questionDate {
+      result["published_at"] = date
+    }
+    if let choices = _questionChoices {
+      result["choices"] = choices
+    }
+    
+    return result
+  }
+  
+  // MARK: Update question votes
+  
+  func updateVotes(choice: Int) {
+    if _questionChoices != nil {
+      let oldValue = _questionChoices![choice]["votes"] as! Int
+      _questionChoices![choice]["votes"] = oldValue + 1
+    }
+  }
+
 
 }

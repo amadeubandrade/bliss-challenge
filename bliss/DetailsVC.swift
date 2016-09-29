@@ -16,7 +16,8 @@ class DetailsVC: UIViewController {
   var questionID: Int!
   var questionRequest: Request?
   var imgRequest: Request?
-
+  var question: Question?
+  
   
   // MARK: - IBOUTLETS
   
@@ -55,7 +56,26 @@ class DetailsVC: UIViewController {
   // MARK: - IBACTIONS
   
   @IBAction func onUpdateQuestionVotesBtnPressed(sender: UIButton) {
+    let APIRetrieveQuestionURL = "https://private-anon-d0ef2ee091-blissrecruitmentapi.apiary-mock.com/questions/\(questionID)?question_id=\(questionID)"
+    
+    if let quest = question {
+      quest.updateVotes(sender.tag)
   
+      let body = quest.buildQuestionDictionary()
+
+      Alamofire.request(.PUT, APIRetrieveQuestionURL, parameters: body, encoding: .JSON, headers: nil).responseJSON(completionHandler: { (response: Response<AnyObject, NSError>) in
+        if response.result.isFailure {
+          self.showAlertWithDetailsVCProblems(title: "A problem occurred", message: "The app cannot download the information for this question. Please try again later.", buttonText: "Dismiss")
+        } else if let result = response.result.value as? [String : AnyObject] {
+          let question = Question(questionInfo: result)
+          self.updateUIwithQuestion(question)
+        } else {
+          self.showAlertWithDetailsVCProblems(title: "A problem occurred", message: "The app cannot download the information for this question. Please try again later.", buttonText: "Dismiss")
+        }
+      })
+    } else {
+      self.showAlertWithDetailsVCProblems(title: "A problem occurred", message: "The app cannot download the information for this question. Please try again later.", buttonText: "Dismiss")
+    }
   }
   
   
@@ -76,15 +96,11 @@ class DetailsVC: UIViewController {
       "question_id" : questionID
     ]
     questionRequest = Alamofire.request(.GET, APIRetrieveQuestionURL, parameters: parametersToURL, encoding: .URL, headers: nil).responseJSON { (response: Response<AnyObject, NSError>) in
-      print(response.result.value)
       if let questionInfo = response.result.value as? [String: AnyObject] {
-        let question = Question(questionInfo: questionInfo)
-        self.updateUIwithQuestion(question)
+        self.question = Question(questionInfo: questionInfo)
+        self.updateUIwithQuestion(self.question!)
       } else {
-        let alert = UIAlertController(title: "A problem occurred", message: "The app cannot download the information for this question. Please try again later.", preferredStyle: .Alert)
-        let action = UIAlertAction(title: "Dismiss", style: .Default, handler: nil)
-        alert.addAction(action)
-        self.presentViewController(alert, animated: true, completion: nil)
+        self.showAlertWithDetailsVCProblems(title: "A problem occurred", message: "The app cannot download the information for this question. Please try again later.", buttonText: "Dismiss")
       }
     }
   }
@@ -143,6 +159,15 @@ class DetailsVC: UIViewController {
         votes4Lbl.hidden = true
       }
     }
+  }
+  
+  // MARK: Display Alert
+  
+  func showAlertWithDetailsVCProblems(title title: String, message: String, buttonText: String) {
+    let alert = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+    let action = UIAlertAction(title: buttonText, style: .Default, handler: nil)
+    alert.addAction(action)
+    self.presentViewController(alert, animated: true, completion: nil)
   }
   
   
