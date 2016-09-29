@@ -34,7 +34,9 @@ class DetailsVC: UIViewController {
   @IBOutlet weak var votes2Lbl: UILabel!
   @IBOutlet weak var votes3Lbl: UILabel!
   @IBOutlet weak var votes4Lbl: UILabel!
-
+  @IBOutlet weak var spinIndicator: UIActivityIndicatorView!
+  @IBOutlet weak var votesSpinIndicator: UIActivityIndicatorView!
+  
   
   // MARK: - VIEW LIFE CYCLE
   
@@ -68,8 +70,10 @@ class DetailsVC: UIViewController {
   // MARK: - IBACTIONS
   
   @IBAction func onUpdateQuestionVotesBtnPressed(sender: UIButton) {
+    votesSpinIndicator.startAnimating()
+  
     let APIRetrieveQuestionURL = "https://private-anon-d0ef2ee091-blissrecruitmentapi.apiary-mock.com/questions/\(questionID)?question_id=\(questionID)"
-    
+  
     if let quest = question {
       quest.updateVotes(sender.tag)
   
@@ -77,15 +81,18 @@ class DetailsVC: UIViewController {
 
       Alamofire.request(.PUT, APIRetrieveQuestionURL, parameters: body, encoding: .JSON, headers: nil).responseJSON(completionHandler: { (response: Response<AnyObject, NSError>) in
         if response.result.isFailure {
+          self.votesSpinIndicator.stopAnimating()
           self.showAlertWithDetailsVCProblems(title: "A problem occurred", message: "The app cannot download the information for this question. Please try again later.", buttonText: "Dismiss")
         } else if let result = response.result.value as? [String : AnyObject] {
           let question = Question(questionInfo: result)
           self.updateUIwithQuestion(question)
         } else {
+          self.votesSpinIndicator.stopAnimating()
           self.showAlertWithDetailsVCProblems(title: "A problem occurred", message: "The app cannot download the information for this question. Please try again later.", buttonText: "Dismiss")
         }
       })
     } else {
+      self.votesSpinIndicator.stopAnimating()
       self.showAlertWithDetailsVCProblems(title: "A problem occurred", message: "The app cannot download the information for this question. Please try again later.", buttonText: "Dismiss")
     }
   }
@@ -109,6 +116,7 @@ class DetailsVC: UIViewController {
     ]
     questionRequest = Alamofire.request(.GET, APIRetrieveQuestionURL, parameters: parametersToURL, encoding: .URL, headers: nil).responseJSON { (response: Response<AnyObject, NSError>) in
       if let questionInfo = response.result.value as? [String: AnyObject] {
+        self.spinIndicator.startAnimating()
         self.question = Question(questionInfo: questionInfo)
         self.updateUIwithQuestion(self.question!)
       } else {
@@ -130,14 +138,18 @@ class DetailsVC: UIViewController {
       imgRequest = Alamofire.request(.GET, imgURL).response(completionHandler: { (_: NSURLRequest?, _:NSHTTPURLResponse?, data: NSData?, error: NSError?) in
         if error != nil {
           self.questionImgView.hidden = true
+          self.spinIndicator.stopAnimating()
         } else if let imgData = data {
           if let img = UIImage(data: imgData) {
             self.questionImgView.image = img
+            self.spinIndicator.stopAnimating()
           } else {
             self.questionImgView.hidden = true
+            self.spinIndicator.stopAnimating()
           }
         } else {
           self.questionImgView.hidden = true
+          self.spinIndicator.stopAnimating()
         }
       })
     }
@@ -170,6 +182,7 @@ class DetailsVC: UIViewController {
         choice4Lbl.hidden = true
         votes4Lbl.hidden = true
       }
+      self.votesSpinIndicator.stopAnimating()
     }
   }
   

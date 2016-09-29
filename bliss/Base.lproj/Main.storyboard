@@ -379,13 +379,19 @@
                                                                 </stackView>
                                                             </subviews>
                                                         </stackView>
+                                                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="lN4-Kb-MI0">
+                                                            <rect key="frame" x="40" y="41" width="20" height="20"/>
+                                                            <color key="color" cocoaTouchSystemColor="darkTextColor"/>
+                                                        </activityIndicatorView>
                                                     </subviews>
                                                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="UaM-G7-tLs" secondAttribute="trailing" constant="8" id="48d-n8-XF9"/>
+                                                        <constraint firstItem="lN4-Kb-MI0" firstAttribute="centerY" secondItem="lbA-Ig-kBy" secondAttribute="centerY" id="Efz-TM-mv9"/>
                                                         <constraint firstItem="KU9-yy-EfR" firstAttribute="leading" secondItem="lbA-Ig-kBy" secondAttribute="trailing" constant="8" id="H76-35-9fM"/>
                                                         <constraint firstAttribute="bottom" secondItem="KU9-yy-EfR" secondAttribute="bottom" constant="52" id="SEn-be-uPL"/>
                                                         <constraint firstItem="KU9-yy-EfR" firstAttribute="top" secondItem="aE9-lV-mJ1" secondAttribute="top" constant="8" id="YoH-oy-hcl"/>
+                                                        <constraint firstItem="lN4-Kb-MI0" firstAttribute="centerX" secondItem="lbA-Ig-kBy" secondAttribute="centerX" id="bMk-Zw-Mqj"/>
                                                         <constraint firstItem="lbA-Ig-kBy" firstAttribute="leading" secondItem="aE9-lV-mJ1" secondAttribute="leading" constant="8" id="gJ2-Zl-zM8"/>
                                                         <constraint firstItem="lbA-Ig-kBy" firstAttribute="top" secondItem="aE9-lV-mJ1" secondAttribute="top" constant="8" id="jpZ-Di-Irf"/>
                                                         <constraint firstAttribute="bottom" secondItem="UaM-G7-tLs" secondAttribute="bottom" constant="8" id="nXq-RL-IhS"/>
@@ -405,6 +411,7 @@
                                             <outlet property="IDLbl" destination="qbf-6J-goE" id="6bU-a3-xOS"/>
                                             <outlet property="dateLbl" destination="mUu-4H-HBb" id="J2Z-cr-Fva"/>
                                             <outlet property="questionLbl" destination="1KJ-MJ-JLm" id="psf-cp-UWw"/>
+                                            <outlet property="spinIndicator" destination="lN4-Kb-MI0" id="dEA-Ts-iZS"/>
                                             <outlet property="thumbImageView" destination="lbA-Ig-kBy" id="UVQ-7T-ZOs"/>
                                         </connections>
                                     </tableViewCell>
@@ -414,6 +421,10 @@
                                     <outlet property="delegate" destination="qwS-bK-29S" id="CI3-e8-1qe"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="TFu-KD-o1S">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                                <color key="color" cocoaTouchSystemColor="darkTextColor"/>
+                            </activityIndicatorView>
                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YLG-tA-3lu">
                                 <rect key="frame" x="1" y="64" width="600" height="44"/>
                                 <subviews>
@@ -442,8 +453,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="TFu-KD-o1S" firstAttribute="centerY" secondItem="ldl-lj-i9o" secondAttribute="centerY" id="1nC-3X-p5u"/>
                             <constraint firstAttribute="trailing" secondItem="wNm-Xv-E6a" secondAttribute="trailing" id="8WP-HA-ahq"/>
                             <constraint firstItem="YLG-tA-3lu" firstAttribute="leading" secondItem="ldl-lj-i9o" secondAttribute="leading" id="B0a-5d-XBf"/>
+                            <constraint firstItem="TFu-KD-o1S" firstAttribute="centerX" secondItem="ldl-lj-i9o" secondAttribute="centerX" id="BNI-cC-Ylg"/>
                             <constraint firstItem="xnU-ep-AoK" firstAttribute="leading" secondItem="ldl-lj-i9o" secondAttribute="leading" constant="8" id="E22-ic-2Ul"/>
                             <constraint firstItem="YLG-tA-3lu" firstAttribute="top" secondItem="j0s-DY-bh1" secondAttribute="bottom" id="Fzx-2C-C6D"/>
                             <constraint firstItem="RM8-bK-yZd" firstAttribute="top" secondItem="xnU-ep-AoK" secondAttribute="bottom" constant="8" id="WbI-Q1-P4R"/>
@@ -460,6 +473,7 @@
                         <outlet property="searchBarHeightConstraint" destination="Qrs-h4-Vjn" id="hLV-EW-uZl"/>
                         <outlet property="searchDisplayController" destination="3NC-Zz-Nxt" id="kzR-JR-N6z"/>
                         <outlet property="shareButton" destination="Qww-3B-M9S" id="9fT-Ag-qBR"/>
+                        <outlet property="spinIndicator" destination="TFu-KD-o1S" id="fRP-gM-c3N"/>
                         <outlet property="tableView" destination="xnU-ep-AoK" id="qQX-v4-foS"/>
                         <segue destination="29n-6h-NO2" kind="show" identifier="showDetailsVC" id="x6A-AY-sdi"/>
                         <segue destination="Bq3-wj-Wy7" kind="show" identifier="showShareVC" id="UI5-Ww-iW0"/>
@@ -537,7 +551,7 @@
                                             <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="BBx-1t-0w4" userLabel="imgSV">
                                                 <rect key="frame" x="45" y="0.0" width="495" height="330"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="248" verticalHuggingPriority="248" horizontalCompressionResistancePriority="748" verticalCompressionResistancePriority="748" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="cBF-DA-ZDy">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="248" verticalHuggingPriority="248" horizontalCompressionResistancePriority="748" verticalCompressionResistancePriority="748" translatesAutoresizingMaskIntoConstraints="NO" id="cBF-DA-ZDy">
                                                         <rect key="frame" x="0.0" y="0.0" width="495" height="330"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="cBF-DA-ZDy" secondAttribute="height" multiplier="3:2" id="dS0-ae-iLe"/>
@@ -699,14 +713,25 @@
                                 </subviews>
                                 <variation key="heightClass=compact-widthClass=regular" distribution="fill"/>
                             </stackView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="z5M-VZ-z02">
+                                <rect key="frame" x="290" y="519" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="3qk-u8-YbC">
+                                <rect key="frame" x="290" y="292" width="20" height="20"/>
+                                <color key="color" cocoaTouchSystemColor="darkTextColor"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="fRJ-A1-lsd" firstAttribute="leading" secondItem="lpb-ya-Crd" secondAttribute="leading" constant="8" id="0LA-B3-UKj"/>
+                            <constraint firstItem="3qk-u8-YbC" firstAttribute="centerX" secondItem="cBF-DA-ZDy" secondAttribute="centerX" id="1UB-bg-rty"/>
                             <constraint firstAttribute="trailing" secondItem="fRJ-A1-lsd" secondAttribute="trailing" constant="8" id="3V9-a3-Esj"/>
                             <constraint firstItem="9iU-uD-Xic" firstAttribute="top" secondItem="lkc-Le-sFi" secondAttribute="bottom" id="5Kb-92-LQH"/>
+                            <constraint firstItem="bYN-bM-D7v" firstAttribute="centerX" secondItem="z5M-VZ-z02" secondAttribute="centerX" id="HWI-2O-ah6"/>
                             <constraint firstItem="1dn-mP-StC" firstAttribute="top" secondItem="fRJ-A1-lsd" secondAttribute="bottom" constant="20" id="ZAN-4m-juF"/>
                             <constraint firstItem="1dn-mP-StC" firstAttribute="top" secondItem="9iU-uD-Xic" secondAttribute="bottom" id="b4r-4f-8yE"/>
+                            <constraint firstItem="bYN-bM-D7v" firstAttribute="centerY" secondItem="z5M-VZ-z02" secondAttribute="centerY" id="drt-VL-thc"/>
+                            <constraint firstItem="3qk-u8-YbC" firstAttribute="centerY" secondItem="cBF-DA-ZDy" secondAttribute="centerY" id="llZ-J8-S8y"/>
                             <constraint firstItem="fRJ-A1-lsd" firstAttribute="top" secondItem="lkc-Le-sFi" secondAttribute="bottom" constant="8" id="wWz-ty-c03"/>
                             <constraint firstAttribute="trailing" secondItem="9iU-uD-Xic" secondAttribute="trailing" id="wz1-Wm-HeZ"/>
                             <constraint firstItem="9iU-uD-Xic" firstAttribute="leading" secondItem="lpb-ya-Crd" secondAttribute="leading" id="zWZ-rF-Poi"/>
@@ -720,10 +745,12 @@
                         <outlet property="questionDateLbl" destination="rCJ-2B-NFA" id="cZF-kU-hwb"/>
                         <outlet property="questionImgView" destination="cBF-DA-ZDy" id="AAX-Ju-5bz"/>
                         <outlet property="questionTitleLbl" destination="rwc-P7-Swe" id="JYo-IA-ZhH"/>
+                        <outlet property="spinIndicator" destination="3qk-u8-YbC" id="jqj-qn-yJ7"/>
                         <outlet property="votes1Lbl" destination="05n-Yt-Qel" id="aBu-53-DAX"/>
                         <outlet property="votes2Lbl" destination="v8w-oK-GgX" id="IUJ-L9-bGZ"/>
                         <outlet property="votes3Lbl" destination="83F-0n-DjP" id="FcL-mu-oII"/>
                         <outlet property="votes4Lbl" destination="PKx-tI-6q9" id="p9F-Le-9Da"/>
+                        <outlet property="votesSpinIndicator" destination="z5M-VZ-z02" id="Nq8-pz-2Sd"/>
                         <segue destination="Bq3-wj-Wy7" kind="show" identifier="showShareVC" id="izX-xj-PS1"/>
                         <segue destination="Zag-Fq-bYX" kind="show" identifier="showConnectivityVC" id="3FM-vz-Dlx"/>
                     </connections>
@@ -758,7 +785,7 @@
         <image name="up" width="21" height="21"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="WQ1-ex-B5d"/>
-        <segue reference="UI5-Ww-iW0"/>
+        <segue reference="3FM-vz-Dlx"/>
+        <segue reference="izX-xj-PS1"/>
     </inferredMetricsTieBreakers>
 </document>

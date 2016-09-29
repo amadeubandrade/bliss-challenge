@@ -30,7 +30,8 @@ class QuestionsVC: UIViewController, UISearchBarDelegate, UITableViewDelegate, U
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var searchBarHeightConstraint: NSLayoutConstraint!
   @IBOutlet weak var shareButton: UIButton!
-  
+  @IBOutlet weak var spinIndicator: UIActivityIndicatorView!
+
   
   // MARK: - VIEW LIFE CYCLE
   
@@ -89,6 +90,7 @@ class QuestionsVC: UIViewController, UISearchBarDelegate, UITableViewDelegate, U
     ]
 
     Alamofire.request(.GET, APIBaseURL, parameters: parametersToURL, encoding: ParameterEncoding.URL, headers: nil).responseJSON { (response: Response<AnyObject, NSError>) in
+      self.spinIndicator.startAnimating()
       if let result = response.result.value as? [[String: AnyObject]] {
         if result.count >= self.limitParameter {
           // Download more questions until result has less results than the number defined in limit
@@ -97,9 +99,11 @@ class QuestionsVC: UIViewController, UISearchBarDelegate, UITableViewDelegate, U
             self.questions.append(question)
           }
           self.tableView.reloadData()
+          self.spinIndicator.stopAnimating()
           self.currentOffsetParameter += self.limitParameter
         }
       } else {
+        self.spinIndicator.stopAnimating()
         let alert = UIAlertController(title: "A problem occurred", message: "The app cannot download the questions. Please try again later.", preferredStyle: .Alert)
         let action = UIAlertAction(title: "Dismiss", style: .Default, handler: nil)
         alert.addAction(action)
