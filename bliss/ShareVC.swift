@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class ShareVC: UIViewController {
 
@@ -17,14 +18,22 @@ class ShareVC: UIViewController {
   
   // MARK: - IBOUTLETS
   
-  @IBOutlet weak var teste: UILabel!
+  @IBOutlet weak var emailField: UITextField!
+  @IBOutlet weak var URLField: UITextField!
+  @IBOutlet weak var shareStackView: UIStackView!
   
   
   // MARK: - VIEW LIFE CYCLE
   
   override func viewDidLoad() {
       super.viewDidLoad()
-    teste.text = "\(questionID)"
+
+  }
+  
+  // MARK: - IBACTIONS
+  
+  @IBAction func onSendEmailBtnPressed(sender: RoundedButton) {
+    print("SHARED")
   }
 
   

@@ -22,6 +22,7 @@
 		E08249D41D99A6D500CF0DDE /* ShareVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08249D31D99A6D500CF0DDE /* ShareVC.swift */; };
 		E08249D61D99A6F600CF0DDE /* ConnectivityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08249D51D99A6F600CF0DDE /* ConnectivityVC.swift */; };
 		E08249D91D99CC5400CF0DDE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E08249D81D99CC5400CF0DDE /* LaunchScreen.storyboard */; };
+		E0B2C6051D9DA06C00E815BD /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B2C6041D9DA06C00E815BD /* RoundedButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		E08249D31D99A6D500CF0DDE /* ShareVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareVC.swift; sourceTree = "<group>"; };
 		E08249D51D99A6F600CF0DDE /* ConnectivityVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectivityVC.swift; sourceTree = "<group>"; };
 		E08249D81D99CC5400CF0DDE /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E0B2C6041D9DA06C00E815BD /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		F321841118327D9645030338 /* Pods_bliss.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bliss.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -127,6 +129,7 @@
 				E08249D81D99CC5400CF0DDE /* LaunchScreen.storyboard */,
 				E0696AA01D9B29CB00222581 /* QuestionCell.swift */,
 				E0696AA21D9B2C9800222581 /* ViewBorderShadow.swift */,
+				E0B2C6041D9DA06C00E815BD /* RoundedButton.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				E0696A9B1D9B124700222581 /* QuestionsVC+SearchBar.swift in Sources */,
 				E08249CD1D99A65800CF0DDE /* QuestionsVC.swift in Sources */,
 				E08249BB1D99A28500CF0DDE /* AppDelegate.swift in Sources */,
+				E0B2C6051D9DA06C00E815BD /* RoundedButton.swift in Sources */,
 				E08249D41D99A6D500CF0DDE /* ShareVC.swift in Sources */,
 				E0696AA31D9B2C9800222581 /* ViewBorderShadow.swift in Sources */,
 				E08249D61D99A6F600CF0DDE /* ConnectivityVC.swift in Sources */,
