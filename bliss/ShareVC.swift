@@ -26,7 +26,7 @@ class ShareVC: UIViewController {
   // MARK: - IBOUTLETS
   
   @IBOutlet weak var emailField: UITextField!
-  @IBOutlet weak var URLField: UITextField!
+  @IBOutlet weak var URLTextView: UITextView!
   @IBOutlet weak var shareStackView: UIStackView!
   @IBOutlet weak var sendEmailButton: UIButton!
   
@@ -47,9 +47,9 @@ class ShareVC: UIViewController {
     // Set observers
     initMonitoring()
     if let id = questionID {
-      URLField.text = URLSchemeForQuestionWithID + "\(id)"
+      URLTextView.text = URLSchemeForQuestionWithID + "\(id)"
     } else if let text = searchText {
-      URLField.text = URLSchemeForQuestionWithText + text
+      URLTextView.text = URLSchemeForQuestionWithText + text
     } else {
       sendEmailButton.enabled = false
     }
