@@ -67,42 +67,47 @@ class ShareVC: UIViewController {
   
   @IBAction func onSendEmailBtnPressed(sender: RoundedButton) {
     if let email = emailField.text where email != "" {
+      
       var urlStr: String!
+      
       if let id = questionID {
         urlStr = URLSchemeForQuestionWithID + "\(id)"
       } else if let text = searchText {
         urlStr = URLSchemeForQuestionWithText + text
       }
+      
       let parameters: [String: AnyObject] = [
         "destination_email" : email,
         "content_url": urlStr
       ]
+      
       shareRequest = Alamofire.request(.POST, baseURL, parameters: parameters, encoding: .URL, headers: nil).responseJSON(completionHandler: { (response: Response<AnyObject, NSError>) in
         if response.result.isFailure {
-          let alert = UIAlertController(title: "Error", message: "There was an error when sending the email. Please try again later.", preferredStyle: .Alert)
-          let action = UIAlertAction(title: "Dismiss", style: .Default, handler: nil)
-          alert.addAction(action)
-          self.presentViewController(alert, animated: true, completion: nil)
+          self.showAlert(title: "Error", message: "There was an error when sending the email. Please try again later.", buttonText: "Dismiss")
         } else if let result = response.result.value as? [String: AnyObject] {
           if let status = result["status"] as? String where status == "OK" {
-            let alert = UIAlertController(title: "Email sent", message: "Your email has been sent with the following content:\n" + urlStr + ".", preferredStyle: .Alert)
-            let action = UIAlertAction(title: "Ok", style: .Default, handler: nil)
-            alert.addAction(action)
-            self.presentViewController(alert, animated: true, completion: nil)
+            self.showAlert(title: "Email sent", message: "Your email has been sent with the following content:\n" + urlStr + ".", buttonText: "Ok")
           } else {
-            let alert = UIAlertController(title: "Error", message: "There was an error when sending the email. Please try again later.", preferredStyle: .Alert)
-            let action = UIAlertAction(title: "Dismiss", style: .Default, handler: nil)
-            alert.addAction(action)
-            self.presentViewController(alert, animated: true, completion: nil)
+            self.showAlert(title: "Error", message: "There was an error when sending the email. Please try again later.", buttonText: "Dismiss")
           }
         }
       })
+      
     } else {
-      let alert = UIAlertController(title: "Mandatory Field", message: "Email field is mandatory. Please enter an email and try again.", preferredStyle: .Alert)
-      let action = UIAlertAction(title: "Dismiss", style: .Default, handler: nil)
-      alert.addAction(action)
-      self.presentViewController(alert, animated: true, completion: nil)
+      showAlert(title: "Mandatory Field", message: "Email field is mandatory. Please enter an email and try again.", buttonText: "Dismiss")
     }
+  }
+  
+  
+  // MARK: - FUNCTIONS
+  
+  // MARK: ERROR HANDLING
+  
+  func showAlert(title title: String, message: String, buttonText: String) {
+    let alert = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+    let action = UIAlertAction(title: buttonText, style: .Default, handler: nil)
+    alert.addAction(action)
+    self.presentViewController(alert, animated: true, completion: nil)
   }
   
   

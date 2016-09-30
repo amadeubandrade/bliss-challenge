@@ -49,6 +49,8 @@ class LoadingVC: UIViewController {
   
   // MARK: - FUNCTIONS
   
+  // MARK: API Request
+  
   func checkHealthStatus() {
     Alamofire.request(.GET, url).progress { bytesRead, totalBytesRead, totalBytesExpectedToRead in
       dispatch_async(dispatch_get_main_queue()) {
@@ -65,6 +67,8 @@ class LoadingVC: UIViewController {
     }
   }
   
+  // MARK: Error handling
+  
   func tryAgain() {
     let alert = UIAlertController(title: "Health Status", message: "There was a problem with the Health Status. Please try again.", preferredStyle: .Alert)
     let tryAgainAction = UIAlertAction(title: "Try Again", style: .Default, handler: { (_: UIAlertAction) in
@@ -74,6 +78,8 @@ class LoadingVC: UIViewController {
     alert.addAction(tryAgainAction)
     self.presentViewController(alert, animated: true, completion: nil)
   }
+  
+  // MARK: Update UI
   
   func updateProgressBar(totalBytesRead: Float, totalBytesExpectedToRead: Float) {
     loadingProgressBar.setProgress(totalBytesRead/totalBytesExpectedToRead, animated: true)

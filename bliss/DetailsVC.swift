@@ -72,43 +72,19 @@ class DetailsVC: UIViewController {
   // MARK: - IBACTIONS
   
   @IBAction func onUpdateQuestionVotesBtnPressed(sender: UIButton) {
-    votesSpinIndicator.startAnimating()
-  
-    let APIRetrieveQuestionURL = "https://private-anon-d0ef2ee091-blissrecruitmentapi.apiary-mock.com/questions/\(questionID)?question_id=\(questionID)"
-  
-    if let quest = question {
-      quest.updateVotes(sender.tag)
-  
-      let body = quest.buildQuestionDictionary()
-
-      Alamofire.request(.PUT, APIRetrieveQuestionURL, parameters: body, encoding: .JSON, headers: nil).responseJSON(completionHandler: { (response: Response<AnyObject, NSError>) in
-        if response.result.isFailure {
-          self.votesSpinIndicator.stopAnimating()
-          self.showAlertWithDetailsVCProblems(title: "A problem occurred", message: "The app cannot download the information for this question. Please try again later.", buttonText: "Dismiss")
-        } else if let result = response.result.value as? [String : AnyObject] {
-          let question = Question(questionInfo: result)
-          self.updateUIwithQuestion(question)
-        } else {
-          self.votesSpinIndicator.stopAnimating()
-          self.showAlertWithDetailsVCProblems(title: "A problem occurred", message: "The app cannot download the information for this question. Please try again later.", buttonText: "Dismiss")
-        }
-      })
-    } else {
-      self.votesSpinIndicator.stopAnimating()
-      self.showAlertWithDetailsVCProblems(title: "A problem occurred", message: "The app cannot download the information for this question. Please try again later.", buttonText: "Dismiss")
-    }
+    updateVotes(sender.tag)
   }
   
   
   // MARK: - FUNCTIONS
   
-  // MARK: Share Button Pressed
+  // MARK: SHARE BUTTON PRESSED
   
   func onShareBtnPressed() {
     performSegueWithIdentifier("showShareVC", sender: questionID)
   }
   
-  // MARK: Get question's info
+  // MARK: GET QUESTION'S INFO
   
   func retrieveInformation() {
     let APIRetrieveQuestionURL = "https://private-anon-d0ef2ee091-blissrecruitmentapi.apiary-mock.com/questions/\(questionID)?"
@@ -127,7 +103,44 @@ class DetailsVC: UIViewController {
     }
   }
   
-  // MARK: Update UI
+  // MARK: UPDATE VOTES
+  
+  func updateVotes(choiceNumber: Int) {
+    votesSpinIndicator.startAnimating()
+    
+    let APIRetrieveQuestionURL = "https://private-anon-d0ef2ee091-blissrecruitmentapi.apiary-mock.com/questions/\(questionID)?question_id=\(questionID)"
+
+    if let quest = question {
+      quest.updateVotes(choiceNumber)
+      let body = quest.buildQuestionDictionary()
+      Alamofire.request(.PUT, APIRetrieveQuestionURL, parameters: body, encoding: .JSON, headers: nil).responseJSON(completionHandler: { (response: Response<AnyObject, NSError>) in
+        if response.result.isFailure {
+          self.votesSpinIndicator.stopAnimating()
+          self.showAlertWithDetailsVCProblems(title: "A problem occurred", message: "The app cannot download the information for this question. Please try again later.", buttonText: "Dismiss")
+        } else if let result = response.result.value as? [String : AnyObject] {
+          let question = Question(questionInfo: result)
+          self.updateUIwithQuestion(question)
+        } else {
+          self.votesSpinIndicator.stopAnimating()
+          self.showAlertWithDetailsVCProblems(title: "A problem occurred", message: "The app cannot download the information for this question. Please try again later.", buttonText: "Dismiss")
+        }
+      })
+    } else {
+      self.votesSpinIndicator.stopAnimating()
+      self.showAlertWithDetailsVCProblems(title: "A problem occurred", message: "The app cannot download the information for this question. Please try again later.", buttonText: "Dismiss")
+    }
+  }
+  
+  // MARK: ERROR HANDLING
+  
+  func showAlertWithDetailsVCProblems(title title: String, message: String, buttonText: String) {
+    let alert = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+    let action = UIAlertAction(title: buttonText, style: .Default, handler: nil)
+    alert.addAction(action)
+    self.presentViewController(alert, animated: true, completion: nil)
+  }
+  
+  // MARK: UPDATE UI
   
   func updateUIwithQuestion(question: Question) {
     if let title = question.questionDescription {
@@ -157,8 +170,8 @@ class DetailsVC: UIViewController {
     }
     if let choices = question.questionChoices {
       if let choiceName = choices[0]["choice"] as? String, let votes = choices[0]["votes"] as? Int {
-          choice1Lbl.text = choiceName
-          votes1Lbl.text = "\(votes)"
+        choice1Lbl.text = choiceName
+        votes1Lbl.text = "\(votes)"
       } else {
         choice1Lbl.hidden = true
         votes1Lbl.hidden = true
@@ -187,16 +200,7 @@ class DetailsVC: UIViewController {
       self.votesSpinIndicator.stopAnimating()
     }
   }
-  
-  // MARK: Display Alert
-  
-  func showAlertWithDetailsVCProblems(title title: String, message: String, buttonText: String) {
-    let alert = UIAlertController(title: title, message: message, preferredStyle: .Alert)
-    let action = UIAlertAction(title: buttonText, style: .Default, handler: nil)
-    alert.addAction(action)
-    self.presentViewController(alert, animated: true, completion: nil)
-  }
-  
+
   
   // MARK: - SEGUE
   
