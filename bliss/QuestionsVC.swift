@@ -41,6 +41,8 @@ class QuestionsVC: UIViewController, UISearchBarDelegate, UITableViewDelegate, U
     searchBar.delegate = self
     // Share button begin hidden
     shareButton.hidden = true
+    // Set Navigation Bar Back Button
+    self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style: .Plain, target:nil, action:nil)
     // Button to hide/show search bar
     let searchButton = UIBarButtonItem(image: UIImage(named: "search"), style: .Plain, target: self, action: #selector(QuestionsVC.updateSearchBarVisibility))
     self.navigationItem.rightBarButtonItem = searchButton

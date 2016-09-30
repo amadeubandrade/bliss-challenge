@@ -23,6 +23,7 @@ class QuestionCell: UITableViewCell {
   @IBOutlet weak var questionLbl: UILabel!
   @IBOutlet weak var dateLbl: UILabel!
   @IBOutlet weak var spinIndicator: UIActivityIndicatorView!
+  @IBOutlet weak var hourLbl: UILabel!
   
   
   // MARK: - INITIALIZER
@@ -61,8 +62,14 @@ class QuestionCell: UITableViewCell {
     if let question = question.questionDescription {
       questionLbl.text = question
     }
-    if let date = question.questionDate {
-      dateLbl.text = date
+    if let dateHour = question.questionDate {
+      let dateFormatter = NSDateFormatter()
+      dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.zzzZ"
+      let dateAndHour = dateFormatter.dateFromString(dateHour)!
+      let calendar = NSCalendar.currentCalendar()
+      let dateComponents = calendar.components([NSCalendarUnit.Day, NSCalendarUnit.Month, NSCalendarUnit.Year, NSCalendarUnit.Hour, NSCalendarUnit.Minute, NSCalendarUnit.Second], fromDate: dateAndHour)
+      dateLbl.text = "\(dateComponents.year)-\(dateComponents.month)-\(dateComponents.day)"
+      hourLbl.text = "\(dateComponents.hour):\(dateComponents.minute):\(dateComponents.second)"
     }
   }
 

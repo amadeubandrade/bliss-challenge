@@ -43,6 +43,8 @@ class DetailsVC: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     self.title = "Question ID: \(questionID)"
+    // Set Navigation Bar Back Button
+    self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style: .Plain, target:nil, action:nil)
     // Set Share Button
     let shareButton = UIBarButtonItem(image: UIImage(named: "share"), style: .Plain, target: self, action: #selector(DetailsVC.onShareBtnPressed))
     self.navigationItem.rightBarButtonItem = shareButton

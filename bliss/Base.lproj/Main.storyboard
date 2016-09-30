@@ -53,7 +53,9 @@
                             <constraint firstItem="cb9-yh-Yma" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="y90-XA-NzH"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Bliss Challenge" id="NUf-eJ-phJ"/>
+                    <navigationItem key="navigationItem" title="Bliss Challenge" id="NUf-eJ-phJ">
+                        <barButtonItem key="backBarButtonItem" title=" " id="K0W-ku-4z1"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="loadingLbl" destination="erC-3O-CHI" id="nqn-Dp-TVC"/>
                         <outlet property="loadingProgressBar" destination="BdS-f0-1QN" id="G5M-1h-VP5"/>
@@ -273,7 +275,7 @@
                                     <constraint firstAttribute="width" constant="277" id="Pt8-s6-WTg"/>
                                     <constraint firstAttribute="height" constant="141" id="VIc-ni-F4x"/>
                                 </constraints>
-                                <string key="text">There network connection is turned off. Please turn it on to fully enjoy this app. After doing this, the app will go to the previous state automatically.</string>
+                                <string key="text">The network connection is turned off. Please turn it on to fully enjoy this app. After doing this, the app will go to the previous state automatically.</string>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -341,37 +343,54 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="KU9-yy-EfR">
-                                                            <rect key="frame" x="101" y="8" width="475" height="41"/>
+                                                            <rect key="frame" x="97" y="8" width="483" height="63"/>
                                                             <subviews>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="0u9-lv-y0C">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="251" height="18"/>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="0u9-lv-y0C">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="242" height="21"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 )" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qbf-6J-goE">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="25" height="18"/>
-                                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                                            <rect key="frame" x="0.0" y="3" width="22" height="16"/>
+                                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Favourite programming language?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1KJ-MJ-JLm">
-                                                                            <rect key="frame" x="30" y="0.0" width="221" height="18"/>
-                                                                            <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="15"/>
+                                                                            <rect key="frame" x="27" y="2" width="215" height="17"/>
+                                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
                                                                 </stackView>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="VPg-4X-mFx">
-                                                                    <rect key="frame" x="0.0" y="23" width="218" height="18"/>
+                                                                    <rect key="frame" x="0.0" y="26" width="104" height="16"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Publicated at:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hrG-Lf-s27">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="93" height="18"/>
-                                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hrG-Lf-s27">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="31" height="16"/>
+                                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="2015-09-27 23:42" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mUu-4H-HBb">
-                                                                            <rect key="frame" x="98" y="0.0" width="120" height="18"/>
-                                                                            <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="15"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="2015-09-27" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mUu-4H-HBb">
+                                                                            <rect key="frame" x="36" y="0.0" width="68" height="16"/>
+                                                                            <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="13"/>
+                                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                </stackView>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="GrT-7R-YyB">
+                                                                    <rect key="frame" x="0.0" y="47" width="71" height="16"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hour:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iI5-c0-P8i">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="33" height="16"/>
+                                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="23:42" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fCN-ud-wQW">
+                                                                            <rect key="frame" x="38" y="0.0" width="33" height="16"/>
+                                                                            <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="13"/>
                                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
@@ -388,14 +407,14 @@
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="UaM-G7-tLs" secondAttribute="trailing" constant="8" id="48d-n8-XF9"/>
                                                         <constraint firstItem="lN4-Kb-MI0" firstAttribute="centerY" secondItem="lbA-Ig-kBy" secondAttribute="centerY" id="Efz-TM-mv9"/>
-                                                        <constraint firstItem="KU9-yy-EfR" firstAttribute="leading" secondItem="lbA-Ig-kBy" secondAttribute="trailing" constant="8" id="H76-35-9fM"/>
-                                                        <constraint firstAttribute="bottom" secondItem="KU9-yy-EfR" secondAttribute="bottom" constant="52" id="SEn-be-uPL"/>
+                                                        <constraint firstItem="KU9-yy-EfR" firstAttribute="leading" secondItem="lbA-Ig-kBy" secondAttribute="trailing" constant="4" id="H76-35-9fM"/>
+                                                        <constraint firstAttribute="bottom" secondItem="KU9-yy-EfR" secondAttribute="bottom" constant="30" id="SEn-be-uPL"/>
                                                         <constraint firstItem="KU9-yy-EfR" firstAttribute="top" secondItem="aE9-lV-mJ1" secondAttribute="top" constant="8" id="YoH-oy-hcl"/>
                                                         <constraint firstItem="lN4-Kb-MI0" firstAttribute="centerX" secondItem="lbA-Ig-kBy" secondAttribute="centerX" id="bMk-Zw-Mqj"/>
                                                         <constraint firstItem="lbA-Ig-kBy" firstAttribute="leading" secondItem="aE9-lV-mJ1" secondAttribute="leading" constant="8" id="gJ2-Zl-zM8"/>
                                                         <constraint firstItem="lbA-Ig-kBy" firstAttribute="top" secondItem="aE9-lV-mJ1" secondAttribute="top" constant="8" id="jpZ-Di-Irf"/>
                                                         <constraint firstAttribute="bottom" secondItem="UaM-G7-tLs" secondAttribute="bottom" constant="8" id="nXq-RL-IhS"/>
-                                                        <constraint firstAttribute="trailing" secondItem="KU9-yy-EfR" secondAttribute="trailing" constant="8" id="rmj-CJ-enu"/>
+                                                        <constraint firstAttribute="trailing" secondItem="KU9-yy-EfR" secondAttribute="trailing" constant="4" id="rmj-CJ-enu"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -410,6 +429,7 @@
                                         <connections>
                                             <outlet property="IDLbl" destination="qbf-6J-goE" id="6bU-a3-xOS"/>
                                             <outlet property="dateLbl" destination="mUu-4H-HBb" id="J2Z-cr-Fva"/>
+                                            <outlet property="hourLbl" destination="fCN-ud-wQW" id="e18-qe-obT"/>
                                             <outlet property="questionLbl" destination="1KJ-MJ-JLm" id="psf-cp-UWw"/>
                                             <outlet property="spinIndicator" destination="lN4-Kb-MI0" id="dEA-Ts-iZS"/>
                                             <outlet property="thumbImageView" destination="lbA-Ig-kBy" id="UVQ-7T-ZOs"/>
@@ -421,10 +441,6 @@
                                     <outlet property="delegate" destination="qwS-bK-29S" id="CI3-e8-1qe"/>
                                 </connections>
                             </tableView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="TFu-KD-o1S">
-                                <rect key="frame" x="290" y="290" width="20" height="20"/>
-                                <color key="color" cocoaTouchSystemColor="darkTextColor"/>
-                            </activityIndicatorView>
                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YLG-tA-3lu">
                                 <rect key="frame" x="1" y="64" width="600" height="44"/>
                                 <subviews>
@@ -450,6 +466,10 @@
                                     <constraint firstAttribute="height" constant="44" id="Qrs-h4-Vjn"/>
                                 </constraints>
                             </stackView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="TFu-KD-o1S">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                                <color key="color" cocoaTouchSystemColor="darkTextColor"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -713,12 +733,12 @@
                                 </subviews>
                                 <variation key="heightClass=compact-widthClass=regular" distribution="fill"/>
                             </stackView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="z5M-VZ-z02">
-                                <rect key="frame" x="290" y="519" width="20" height="20"/>
-                            </activityIndicatorView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="3qk-u8-YbC">
                                 <rect key="frame" x="290" y="292" width="20" height="20"/>
                                 <color key="color" cocoaTouchSystemColor="darkTextColor"/>
+                            </activityIndicatorView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="z5M-VZ-z02">
+                                <rect key="frame" x="290" y="519" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -785,7 +805,7 @@
         <image name="up" width="21" height="21"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="3FM-vz-Dlx"/>
-        <segue reference="izX-xj-PS1"/>
+        <segue reference="UI5-Ww-iW0"/>
+        <segue reference="eCU-KD-Kbt"/>
     </inferredMetricsTieBreakers>
 </document>
