@@ -27,6 +27,7 @@
 		E0E8ED4D1D9DD07D003DA349 /* LoadingVC+Monitoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E8ED4C1D9DD07D003DA349 /* LoadingVC+Monitoring.swift */; };
 		E0E8ED4F1D9DD09D003DA349 /* DetailsVC+Monitoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E8ED4E1D9DD09D003DA349 /* DetailsVC+Monitoring.swift */; };
 		E0E8ED511D9DD0B2003DA349 /* ShareVC+Monitoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E8ED501D9DD0B2003DA349 /* ShareVC+Monitoring.swift */; };
+		E0E8ED531D9DEAA9003DA349 /* Connectivity+Monitoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E8ED521D9DEAA9003DA349 /* Connectivity+Monitoring.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		E0E8ED4C1D9DD07D003DA349 /* LoadingVC+Monitoring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LoadingVC+Monitoring.swift"; sourceTree = "<group>"; };
 		E0E8ED4E1D9DD09D003DA349 /* DetailsVC+Monitoring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DetailsVC+Monitoring.swift"; sourceTree = "<group>"; };
 		E0E8ED501D9DD0B2003DA349 /* ShareVC+Monitoring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ShareVC+Monitoring.swift"; sourceTree = "<group>"; };
+		E0E8ED521D9DEAA9003DA349 /* Connectivity+Monitoring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Connectivity+Monitoring.swift"; sourceTree = "<group>"; };
 		F321841118327D9645030338 /* Pods_bliss.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bliss.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -130,6 +132,7 @@
 				E08249D31D99A6D500CF0DDE /* ShareVC.swift */,
 				E0E8ED501D9DD0B2003DA349 /* ShareVC+Monitoring.swift */,
 				E08249D51D99A6F600CF0DDE /* ConnectivityVC.swift */,
+				E0E8ED521D9DEAA9003DA349 /* Connectivity+Monitoring.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				E0E8ED4B1D9DCE15003DA349 /* QuestionsVC+Monitoring.swift in Sources */,
 				E08249BD1D99A28500CF0DDE /* LoadingVC.swift in Sources */,
 				E0E8ED4D1D9DD07D003DA349 /* LoadingVC+Monitoring.swift in Sources */,
+				E0E8ED531D9DEAA9003DA349 /* Connectivity+Monitoring.swift in Sources */,
 				E08249CF1D99A68E00CF0DDE /* DetailsVC.swift in Sources */,
 				E0696A9F1D9B273000222581 /* Question.swift in Sources */,
 				E0696A9B1D9B124700222581 /* QuestionsVC+SearchBar.swift in Sources */,

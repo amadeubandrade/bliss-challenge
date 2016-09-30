@@ -22,40 +22,21 @@ class ConnectivityVC: UIViewController {
     super.viewDidLoad()
     // Set Navigation Bar Back Button
     self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style: .Plain, target:nil, action:nil)
-
-    do {
-      reachability = try Reachability.reachabilityForInternetConnection()
-    } catch {
-      print("Unable to create Reachability")
-      return
-    }
+    // Setup network monitoring
+    setupMonitoring()
   }
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ConnectivityVC.reachabilityChanged), name: ReachabilityChangedNotification, object: reachability)
-    do {
-      try reachability.startNotifier()
-    } catch {
-      print("Unable to create Reachability")
-      return
-    }
+    // Set observers
+    initMonitoring()
   }
   
   override func viewWillDisappear(animated: Bool) {
     super.viewWillDisappear(animated)
-    reachability.stopNotifier()
-    NSNotificationCenter.defaultCenter().removeObserver(self, name: ReachabilityChangedNotification, object: reachability)
+    // Remove observers
+    stopMonitoring()
   }
   
-  
-  // MARK: - FUNCTIONS
-
-  func reachabilityChanged(note: NSNotification) {
-    let reachability = note.object as! Reachability
-    if reachability.isReachable() {
-      navigationController?.popViewControllerAnimated(true)
-    }
-  }
 
 }
