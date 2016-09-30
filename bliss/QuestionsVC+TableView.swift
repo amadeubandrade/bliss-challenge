@@ -70,6 +70,7 @@ extension QuestionsVC {
       alert.addAction(action)
       self.presentViewController(alert, animated: true, completion: nil)
     }
+    tableView.deselectRowAtIndexPath(indexPath, animated: true)
   }
   
 
